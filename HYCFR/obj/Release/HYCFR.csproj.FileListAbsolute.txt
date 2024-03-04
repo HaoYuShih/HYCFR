@@ -173,3 +173,4 @@ C:\Users\User\Documents\GitHub\HYCFR\HYCFR\obj\Release\HYCFR.csproj.CoreCompileI
 C:\Users\User\Documents\GitHub\HYCFR\HYCFR\obj\Release\HYCFR.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\HYCFR\HYCFR\obj\Release\HYCFR.dll
 C:\Users\User\Documents\GitHub\HYCFR\HYCFR\obj\Release\HYCFR.pdb
+C:\Users\User\Documents\GitHub\HYCFR\HYCFR\bin\HYCFR.xml

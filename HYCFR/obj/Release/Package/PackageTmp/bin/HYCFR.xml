@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HYCFR</name>
+    </assembly>
+    <members>
+        <member name="M:HYCFR.CFunc.BCswitchTW(System.String,System.Boolean)">
+            <summary>
+            此Func用為在Parse成DateTime前先使用字串做民國和西元的年份轉換，避免閏年時會造成轉換錯誤!
+            輸入 : 2012/5/12 => 101/5/12 , 101/5/12 => 2012/5/12 ，務必使用"/"或"-"!!!!
+            </summary>
+            <param name="time">輸入民國或西元格式</param>
+            <param name="IsBC">true : 西元，false : 民國</param>
+            <returns>(string)西元或民國</returns>
+        </member>
+        <member name="M:HYCFR.CFunc.ExtSwitchMimeType(System.String)">
+            <summary>
+            輸入副檔名或Mimetype進行轉換
+            </summary>
+            <param name="value">副檔名或Mimetype</param>
+            <returns>(string)副檔名或Mimetype</returns>
+        </member>
+        <member name="M:HYCFR.CFunc.Hash_SHA256(System.String)">
+            <summary>
+            輸入字串做SHA256雜湊
+            </summary>
+            <param name="value">(string)</param>
+            <returns>(string)</returns>
+        </member>
+        <member name="M:HYCFR.CFunc.CheckInt``2(``0,System.Int32,System.Int32,``1@)">
+            <summary>
+            判斷Int介於指定區間內，並指定轉換型態string/Int
+            </summary>
+            <typeparam name="T">(string/Int)</typeparam>
+            <param name="value">數字</param>
+            <param name="startnum">大於等於此參數</param>
+            <param name="endnum">小於等於此參數</param>
+            <param name="result">(string/Int)value</param>
+            <returns>(bool)是否驗證成功</returns>
+        </member>
+        <member name="M:HYCFR.CFunc.CheckString(System.String,System.Int32,System.Int32,System.String@)">
+            <summary>
+            檢查字串字數在指定長度範圍內
+            </summary>
+            <param name="target">字串</param>
+            <param name="startnum">大於等於此參數</param>
+            <param name="endnum">小於等於此參數</param>
+            <param name="result">回傳target</param>
+            <returns>(bool)是否驗證成功</returns>
+        </member>
+        <member name="M:HYCFR.CFunc.CreateNextID(System.String,System.String)">
+            <summary>
+            產生下一號ID 2 10
+            範例: formatExpress => "WL!{yyyyMM}IA%{4}" => WL20240115IA0001
+            代號說明:
+            !{日期格式} => !{yyyyMMdd} 
+            %{序號位數} => SN%{4}T => SN0001T 
+            </summary>
+            <param name="formatExpress">格式樣板</param>
+            <param name="LatestID">最新ID</param>
+            <returns>回傳下一號ID</returns>
+        </member>
+        <member name="M:HYCFR.CFunc.CreateDirectory(System.String)">
+            <summary>
+            建好指定路徑資料夾
+            </summary>
+            <param name="path">完整路徑</param>
+            <returns>(bool)是否有建資料夾</returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:HYCFR.CFunc.UploadFile(System.Collections.Generic.List{HYCFR.CFunc.FileData},System.String,System.Collections.Generic.List{System.String}@,System.Boolean,System.Boolean)">
+            <summary>
+            可批量上傳檔案至同一個路徑
+            </summary>
+            <param name="files">檔案</param>                                                     
+            <param name="path">路徑</param>
+            <param name="filenamelist">實際存檔檔名</param>
+            <param name="IsRenew">是否先清空當前目錄下所有檔案</param>
+            <param name="UseIndex">是否使用序號改寫檔名，避免重複檔名問題</param>
+            <returns>成功上傳回傳空字串，反之回傳錯誤資訊</returns>
+        </member>
+        <member name="M:HYCFR.CFunc.UploadFile(System.Collections.Generic.List{System.Web.HttpPostedFileBase},System.String,System.Collections.Generic.List{System.String}@,System.Boolean,System.Boolean)">
+            <summary>
+            可批量上傳檔案至同一個路徑
+            </summary>
+            <param name="files">檔案</param>
+            <param name="path">路徑</param>
+            <param name="filenamelist">實際存檔檔名</param>
+            <param name="IsRenew">是否先清空當前目錄下所有檔案</param>
+            <param name="UseIndex">是否使用序號改寫檔名，避免重複檔名問題</param>
+            <returns>成功上傳回傳空字串，反之回傳錯誤資訊</returns>
+        </member>
+        <member name="M:HYCFR.CFunc.DownloadFile(System.String,System.String)">
+            <summary>
+            單一檔案下載
+            </summary>
+            <param name="path">資料夾路徑</param>
+            <param name="filename">檔案名稱</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:HYCFR.CFunc.GetFileNamesFromDir(System.String)">
+            <summary>
+            抓取資料夾內所有檔名
+            </summary>
+            <param name="path">資料夾路徑</param>
+            <returns>檔名陣列</returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:HYCFR.CFunc.MakeExcel(System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String,System.Web.HttpResponseBase)">
+            <summary>
+            從DataGrid搜尋結果匯出Excel資料
+            layout範例:
+            {"狀態", "State"}
+            </summary>
+            <param name="layout">Excel的行標題與資料的Key對應表</param>
+            <param name="datagridResult">DataDrid查詢資料結果</param>
+            <param name="title">頁簽的標題</param>
+            <param name="respon">http請求</param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+    </members>
+</doc>
