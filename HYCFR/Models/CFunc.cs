@@ -388,7 +388,7 @@ namespace HYCFR
         #region 檔案類別
         public class FileData
         {
-            public MemoryStream stream { get; set; }
+            public byte[] Filebytes { get; set; } 
             public string FileName { get; set; }
         }
         #endregion
@@ -463,8 +463,7 @@ namespace HYCFR
                     string finalpath = Path.Combine(path, clearname);
                     using (FileStream fs = File.Create(finalpath))
                     {
-                        item.stream.Seek(0, SeekOrigin.Begin);
-                        item.stream.CopyTo(fs);
+                        fs.Write(item.Filebytes, 0, item.Filebytes.Length);
                     }
                     #endregion
 
@@ -585,7 +584,7 @@ namespace HYCFR
                 #region 抓檔案
                 if (File.Exists(Path.Combine(path, filename)))
                 {
-                    fs.stream = new MemoryStream(File.ReadAllBytes(Path.Combine(path, filename)));
+                    fs.Filebytes = File.ReadAllBytes(Path.Combine(path, filename));
                     fs.FileName = filename;
                     return fs;
                 }
@@ -645,9 +644,9 @@ namespace HYCFR
         /// <param name="layout">Excel的行標題與資料的Key對應表</param>
         /// <param name="datagridResult">DataDrid查詢資料結果</param>
         /// <param name="title">頁簽的標題</param>
-        /// <returns></returns>
+        /// <param name="respon">http請求</param>
         /// <exception cref="Exception"></exception>
-        public MemoryStream MakeExcel(Dictionary<string, string> layout, string datagridResult, string title)
+        public void MakeExcel(Dictionary<string, string> layout, string datagridResult, string title, HttpResponseBase respon)
         {
             try
             {
@@ -683,9 +682,12 @@ namespace HYCFR
 
                 worksheet.Cells.AutoFitColumns();
                 var stream = new MemoryStream();
+                respon.Headers.Add("Content-Disposition", "attachment; filename=" + title + ".xlsx");
+                respon.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
                 package.SaveAs(stream);
                 stream.Seek(0, SeekOrigin.Begin);
-                return stream;
+                respon.BinaryWrite(stream.ToArray());
+                stream.Dispose();
             }
             catch (Exception ex)
             {

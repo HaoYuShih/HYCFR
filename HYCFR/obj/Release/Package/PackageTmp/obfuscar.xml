@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Obfuscator>
 	<Var name="InPath" value=".\HYCFR\bin\app.publish\bin" />
-	<Var name="OutPath" value=".\HYCFR\bin\app.publish\bin\obfuscated" />
+	<Var name="OutPath" value=".\HYCFR\bin\app.publish\obfuscated" />
 
 	<Module file="$(InPath)\HYCFR.dll" />
 </Obfuscator>

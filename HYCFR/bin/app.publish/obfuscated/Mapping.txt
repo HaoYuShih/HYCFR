@@ -14,25 +14,18 @@ Skipped Types:
 [HYCFR]HYCFR.CFunc/FileData skipped:  KeepPublicApi option in configuration
 {
 
-	[HYCFR]HYCFR.CFunc/FileData::get_stream[0]( ) skipped:  skip by property
-	[HYCFR]HYCFR.CFunc/FileData::set_stream[1]( [mscorlib]System.IO.MemoryStream ) skipped:  skip by property
+	[HYCFR]HYCFR.CFunc/FileData::get_Filebytes[0]( ) skipped:  skip by property
+	[HYCFR]HYCFR.CFunc/FileData::set_Filebytes[1]( [mscorlib]System.Byte[] ) skipped:  skip by property
 	[HYCFR]HYCFR.CFunc/FileData::get_FileName[0]( ) skipped:  skip by property
 	[HYCFR]HYCFR.CFunc/FileData::set_FileName[1]( [mscorlib]System.String ) skipped:  skip by property
 	[HYCFR]HYCFR.CFunc/FileData::.ctor[0]( ) skipped:  special name
 
-	System.IO.MemoryStream [HYCFR]System.IO.MemoryStream HYCFR.CFunc/FileData::<stream>k__BackingField -> A
+	System.Byte[] [HYCFR]System.Byte[] HYCFR.CFunc/FileData::<Filebytes>k__BackingField -> A
 	System.String [HYCFR]System.String HYCFR.CFunc/FileData::<FileName>k__BackingField -> A
 
 
-	System.IO.MemoryStream [HYCFR]System.IO.MemoryStream HYCFR.CFunc/FileData::stream skipped:  KeepPublicApi option in configuration
+	System.Byte[] [HYCFR]System.Byte[] HYCFR.CFunc/FileData::Filebytes skipped:  KeepPublicApi option in configuration
 	System.String [HYCFR]System.String HYCFR.CFunc/FileData::FileName skipped:  KeepPublicApi option in configuration
-}
-
-[HYCFR]HYCFR.MvcApplication skipped:  KeepPublicApi option in configuration
-{
-
-	[HYCFR]HYCFR.MvcApplication::Application_Start[0]( ) skipped:  KeepPublicApi option in configuration
-	[HYCFR]HYCFR.MvcApplication::.ctor[0]( ) skipped:  special name
 }
 
 [HYCFR]HYCFR.CFunc skipped:  KeepPublicApi option in configuration
@@ -52,7 +45,7 @@ Skipped Types:
 	[HYCFR]HYCFR.CFunc::UploadFile[5]( [mscorlib]System.Collections.Generic.List`1<[System.Web]System.Web.HttpPostedFileBase>, [mscorlib]System.String, [mscorlib]System.Collections.Generic.List`1<System.String>&, [mscorlib]System.Boolean, [mscorlib]System.Boolean ) skipped:  KeepPublicApi option in configuration
 	[HYCFR]HYCFR.CFunc::DownloadFile[2]( [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
 	[HYCFR]HYCFR.CFunc::GetFileNamesFromDir[1]( [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
-	[HYCFR]HYCFR.CFunc::MakeExcel[3]( [mscorlib]System.Collections.Generic.Dictionary`2<[mscorlib]System.String,[mscorlib]System.String>, [mscorlib]System.String, [mscorlib]System.String ) skipped:  KeepPublicApi option in configuration
+	[HYCFR]HYCFR.CFunc::MakeExcel[4]( [mscorlib]System.Collections.Generic.Dictionary`2<[mscorlib]System.String,[mscorlib]System.String>, [mscorlib]System.String, [mscorlib]System.String, [System.Web]System.Web.HttpResponseBase ) skipped:  KeepPublicApi option in configuration
 	[HYCFR]HYCFR.CFunc::.ctor[0]( ) skipped:  special name
 }
 
